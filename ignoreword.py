@@ -5,6 +5,9 @@ class Ignoreword(sublime_plugin.EventListener):
     if command_name == 'ignore_word' :
       settings = sublime.load_settings('Preferences.sublime-settings')
       ignored_words = settings.get('ignored_words')
+      print(ignored_words)
+      if ignored_words is None :
+        ignored_words = []
       word = args['word']
       if word not in ignored_words :
         ignored_words.append(word)
